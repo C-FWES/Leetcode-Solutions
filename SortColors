@@ -1,0 +1,18 @@
+class Solution {
+public:
+    void sortColors(vector<int>& nums) {
+        vector<int> countOfNums(3);
+        for (int i = 0; i < nums.size(); ++i) {
+            countOfNums[nums[i]] += 1;
+        }
+        for (int i = 0; i < countOfNums[0]; ++i) {
+            nums[i] = 0;
+        }
+        for (int i = countOfNums[0]; i < countOfNums[0] + countOfNums[1]; ++i) {
+            nums[i] = 1;
+        }
+        for (int i = countOfNums[0] + countOfNums[1]; i < nums.size(); ++i) {
+            nums[i] = 2;
+        }
+    }
+};
